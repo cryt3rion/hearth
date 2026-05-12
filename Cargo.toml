@@ -1,0 +1,50 @@
+[package]
+name = "hearth-cli"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Unified inventory of every CLI tool installed on your Mac — across Homebrew, npm, bun, cargo, rustup, go, and manual curl|sh installs. See sizes, find orphans, spot duplicates."
+authors = ["Hearth contributors"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mphassani/hearth"
+homepage = "https://github.com/mphassani/hearth"
+documentation = "https://github.com/mphassani/hearth"
+readme = "README.md"
+keywords = ["cli", "macos", "homebrew", "package-manager", "disk-usage"]
+categories = ["command-line-utilities", "development-tools"]
+
+[[bin]]
+name = "hearth"
+path = "src/main.rs"
+
+[lib]
+name = "hearth"
+path = "src/lib.rs"
+
+[dependencies]
+anyhow = "1"
+thiserror = "1"
+clap = { version = "4", features = ["derive", "wrap_help"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "process", "fs", "io-util"] }
+futures = "0.3"
+async-trait = "0.1"
+jwalk = "0.8"
+walkdir = "2"
+tabled = "0.15"
+owo-colors = "4"
+directories = "5"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+humansize = "2"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock", "serde"] }
+
+[dev-dependencies]
+insta = { version = "1", features = ["yaml", "json"] }
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
