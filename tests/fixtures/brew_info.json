@@ -1,0 +1,42 @@
+{
+  "formulae": [
+    {
+      "name": "ripgrep",
+      "tap": "homebrew/core",
+      "homepage": "https://github.com/BurntSushi/ripgrep",
+      "installed": [
+        { "version": "14.1.1" }
+      ]
+    },
+    {
+      "name": "fd",
+      "tap": "homebrew/core",
+      "homepage": "https://github.com/sharkdp/fd",
+      "installed": [
+        { "version": "10.2.0" }
+      ]
+    },
+    {
+      "name": "private-tap-tool",
+      "tap": "someone/private",
+      "homepage": null,
+      "installed": []
+    }
+  ],
+  "casks": [
+    {
+      "token": "claude",
+      "name": ["Claude"],
+      "tap": "homebrew/cask",
+      "homepage": "https://www.anthropic.com/claude",
+      "installed": "1.1.86"
+    },
+    {
+      "token": "claude-code",
+      "name": ["Claude Code"],
+      "tap": "homebrew/cask",
+      "homepage": "https://www.anthropic.com/code",
+      "installed": "2.1.126"
+    }
+  ]
+}

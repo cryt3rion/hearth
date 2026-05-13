@@ -108,3 +108,21 @@ async fn run_npm_ls() -> Result<String> {
     // npm ls returns nonzero exit code on missing peer deps but still emits valid JSON
     Ok(String::from_utf8_lossy(&out.stdout).into_owned())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn parses_npm_ls_global_fixture() {
+        let json = include_str!("../../tests/fixtures/npm_ls.json");
+        let parsed: NpmList = serde_json::from_str(json).expect("npm_ls.json parses");
+        let mut deps: Vec<(String, NpmDep)> = parsed
+            .dependencies
+            .unwrap_or_default()
+            .into_iter()
+            .collect();
+        deps.sort_by(|a, b| a.0.cmp(&b.0));
+        insta::assert_debug_snapshot!(deps);
+    }
+}

@@ -1,0 +1,26 @@
+---
+source: src/scan/cargo.rs
+assertion_line: 85
+expression: installs
+---
+[
+    (
+        "cargo-edit 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
+        Crates2Entry {
+            bins: [
+                "cargo-add",
+                "cargo-rm",
+                "cargo-set-version",
+                "cargo-upgrade",
+            ],
+        },
+    ),
+    (
+        "ripgrep 14.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+        Crates2Entry {
+            bins: [
+                "rg",
+            ],
+        },
+    ),
+]

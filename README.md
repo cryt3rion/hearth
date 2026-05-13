@@ -20,7 +20,7 @@ The wave of AI CLIs — claude, cursor-agent, codex, ollama, aider, llm, gemini,
 
 ```bash
 # Homebrew tap (recommended)
-brew install mphassani/hearth/hearth
+brew install cryt3rion/hearth/hearth
 
 # Cargo
 cargo install hearth-cli

@@ -163,3 +163,15 @@ async fn run_brew_info() -> Result<BrewInfo> {
     }
     serde_json::from_slice(&out.stdout).context("parse `brew info --json=v2` output")
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn parses_brew_info_v2_fixture() {
+        let json = include_bytes!("../../tests/fixtures/brew_info.json");
+        let parsed: BrewInfo = serde_json::from_slice(json).expect("brew_info.json parses");
+        insta::assert_debug_snapshot!(parsed);
+    }
+}

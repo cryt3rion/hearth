@@ -1,0 +1,15 @@
+{
+  "name": "lib",
+  "dependencies": {
+    "npm": {
+      "version": "10.9.0"
+    },
+    "happy": {
+      "version": "1.1.7"
+    },
+    "@anthropic-ai/claude-code": {
+      "version": "2.1.126"
+    },
+    "broken-link": {}
+  }
+}

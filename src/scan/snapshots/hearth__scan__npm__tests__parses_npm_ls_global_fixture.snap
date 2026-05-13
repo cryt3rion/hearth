@@ -1,0 +1,37 @@
+---
+source: src/scan/npm.rs
+assertion_line: 126
+expression: deps
+---
+[
+    (
+        "@anthropic-ai/claude-code",
+        NpmDep {
+            version: Some(
+                "2.1.126",
+            ),
+        },
+    ),
+    (
+        "broken-link",
+        NpmDep {
+            version: None,
+        },
+    ),
+    (
+        "happy",
+        NpmDep {
+            version: Some(
+                "1.1.7",
+            ),
+        },
+    ),
+    (
+        "npm",
+        NpmDep {
+            version: Some(
+                "10.9.0",
+            ),
+        },
+    ),
+]

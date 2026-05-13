@@ -1,0 +1,77 @@
+---
+source: src/scan/homebrew.rs
+assertion_line: 175
+expression: parsed
+---
+BrewInfo {
+    formulae: [
+        Formula {
+            name: "ripgrep",
+            tap: Some(
+                "homebrew/core",
+            ),
+            homepage: Some(
+                "https://github.com/BurntSushi/ripgrep",
+            ),
+            installed: [
+                FormulaInstall {
+                    version: "14.1.1",
+                },
+            ],
+        },
+        Formula {
+            name: "fd",
+            tap: Some(
+                "homebrew/core",
+            ),
+            homepage: Some(
+                "https://github.com/sharkdp/fd",
+            ),
+            installed: [
+                FormulaInstall {
+                    version: "10.2.0",
+                },
+            ],
+        },
+        Formula {
+            name: "private-tap-tool",
+            tap: Some(
+                "someone/private",
+            ),
+            homepage: None,
+            installed: [],
+        },
+    ],
+    casks: [
+        Cask {
+            token: "claude",
+            name: [
+                "Claude",
+            ],
+            tap: Some(
+                "homebrew/cask",
+            ),
+            homepage: Some(
+                "https://www.anthropic.com/claude",
+            ),
+            installed: Some(
+                "1.1.86",
+            ),
+        },
+        Cask {
+            token: "claude-code",
+            name: [
+                "Claude Code",
+            ],
+            tap: Some(
+                "homebrew/cask",
+            ),
+            homepage: Some(
+                "https://www.anthropic.com/code",
+            ),
+            installed: Some(
+                "2.1.126",
+            ),
+        },
+    ],
+}

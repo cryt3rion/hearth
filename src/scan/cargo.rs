@@ -71,3 +71,17 @@ fn cargo_home() -> Option<PathBuf> {
     }
     std::env::var_os("HOME").map(|h| PathBuf::from(h).join(".cargo"))
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn parses_crates2_fixture() {
+        let bytes = include_bytes!("../../tests/fixtures/crates2.json");
+        let parsed: Crates2 = serde_json::from_slice(bytes).expect("crates2.json parses");
+        let mut installs: Vec<(String, Crates2Entry)> = parsed.installs.into_iter().collect();
+        installs.sort_by(|a, b| a.0.cmp(&b.0));
+        insta::assert_debug_snapshot!(installs);
+    }
+}
