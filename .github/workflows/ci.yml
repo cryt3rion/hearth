@@ -20,19 +20,33 @@ jobs:
         with:
           components: rustfmt, clippy
 
-      - name: prepend cargo bin to PATH
-        run: echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+      - name: debug toolchain layout
+        run: |
+          echo "PATH=$PATH"
+          echo "--- which ---"
+          which cargo || true
+          which cargo-fmt || true
+          which rustfmt || true
+          which rustup || true
+          echo "--- cargo bin ---"
+          ls -la "$HOME/.cargo/bin/" || true
+          echo "--- rustup toolchain bin ---"
+          ls -la "$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin/" || true
+          echo "--- versions ---"
+          rustup show
+          rustup run stable cargo --version
+          rustup run stable rustfmt --version
 
       - uses: Swatinem/rust-cache@v2
 
       - name: cargo fmt
-        run: cargo fmt --all -- --check
+        run: rustup run stable cargo fmt --all -- --check
 
       - name: cargo clippy
-        run: cargo clippy --all-targets --all-features -- -D warnings
+        run: rustup run stable cargo clippy --all-targets --all-features -- -D warnings
 
       - name: cargo build
-        run: cargo build --locked --verbose
+        run: rustup run stable cargo build --locked --verbose
 
       - name: cargo test
-        run: cargo test --locked --verbose
+        run: rustup run stable cargo test --locked --verbose
