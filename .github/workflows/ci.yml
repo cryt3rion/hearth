@@ -11,12 +11,8 @@ env:
 
 jobs:
   test:
-    name: test (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-14, macos-13]
+    name: test
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
 
