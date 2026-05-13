@@ -21,6 +21,9 @@ jobs:
         with:
           targets: aarch64-apple-darwin
 
+      - name: prepend cargo bin to PATH
+        run: echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+
       - uses: Swatinem/rust-cache@v2
 
       - name: cargo build --release
